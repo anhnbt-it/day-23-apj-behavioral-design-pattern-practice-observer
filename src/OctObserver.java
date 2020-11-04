@@ -5,17 +5,17 @@
  * Time: 9:59 SA
  */
 
-public class OctObserver extends Observer {
+public class OctObserver implements Observer {
+    private ConcreteSubject subject;
 
-    private final Subject subject;
+    public OctObserver() {}
 
-    public OctObserver(Subject subject) {
+    public OctObserver(ConcreteSubject subject) {
         this.subject = subject;
-        this.subject.add(this);
     }
 
     @Override
-    public void update() {
+    public void update(String msg) {
         System.out.println("Octal: " + Integer.toOctalString(subject.getState()));
     }
 }

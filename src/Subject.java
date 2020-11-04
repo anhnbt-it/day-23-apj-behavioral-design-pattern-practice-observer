@@ -8,29 +8,12 @@ import java.util.List;
  * Time: 9:54 SA
  */
 
-public class Subject {
-    private final List<Observer> observers;
-    private int state;
+public interface Subject {
+    // Lớp được hiểu như là "Ông chủ", là một Interface
 
-    public Subject() {
-        observers = new ArrayList<>();
-    }
+    void attach(Observer observer);
 
-    public void add(Observer o) {
-        observers.add(o);
-    }
+    void detach(Observer observer);
 
-    public void execute() {
-        for (Observer observer: observers) {
-            observer.update();
-        }
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public int getState() {
-        return state;
-    }
+    void notifyChange(String msg);
 }

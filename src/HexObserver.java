@@ -5,17 +5,18 @@
  * Time: 9:57 SA
  */
 
-public class HexObserver extends Observer {
+public class HexObserver implements Observer {
+    private ConcreteSubject subject;
 
-    private final Subject subject;
+    public HexObserver() {
+    }
 
-    public HexObserver(Subject subject) {
+    public HexObserver(ConcreteSubject subject) {
         this.subject = subject;
-        this.subject.add(this);
     }
 
     @Override
-    public void update() {
+    public void update(String msg) {
         System.out.println("Hex: " + Integer.toHexString(subject.getState()));
     }
 }

@@ -5,16 +5,17 @@
  * Time: 10:00 SA
  */
 
-public class BinObserver extends Observer {
-    private final Subject subject;
+public class BinObserver implements Observer {
+    private ConcreteSubject subject;
 
-    public BinObserver(Subject subject) {
+    public BinObserver() {}
+
+    public BinObserver(ConcreteSubject subject) {
         this.subject = subject;
-        this.subject.add(this);
     }
 
     @Override
-    public void update() {
+    public void update(String msg) {
         System.out.println("Binary: " + Integer.toBinaryString(subject.getState()));
     }
 }

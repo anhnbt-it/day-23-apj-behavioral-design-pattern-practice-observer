@@ -5,7 +5,9 @@
  * Time: 9:53 SA
  */
 
-abstract class Observer {
-    protected Subject subject;
-    public abstract void update();
+public interface Observer {
+    /*
+     * Phương thức này sẽ nhận thay đổi mỗi khi có thông báo từ Subject.
+     */
+    void update(String msg);
 }
